@@ -22,6 +22,12 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v2
 
+        - name: javasetup
+          uses: actions/setup-java@v2
+          with:
+            distribution: 'adopt'
+            java-version: '8'
+
         - name: Installs
           run: |
             pip install --pre hamlet-cli
