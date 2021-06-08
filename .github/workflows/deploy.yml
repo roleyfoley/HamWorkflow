@@ -18,8 +18,6 @@ jobs:
       ENVIRONMENT: integration
       SEGMENT: default
 
-      ROOT_DIR: ${{ env.GITHUB_WORKSPACE }}
-
     steps:
         - name: Checkout
           uses: actions/checkout@v2
@@ -33,6 +31,8 @@ jobs:
             sudo apt-get install -y jq dos2unix
 
         - name: Run Deploy
+          env:
+            ROOT_DIR: ${{ env.GITHUB_WORKSPACE }}
           run: |
             hamlet deploy list-deployments
             hamlet deploy run-deployments
