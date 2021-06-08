@@ -18,33 +18,27 @@ jobs:
       ENVIRONMENT: integration
       SEGMENT: default
 
+      ROOT_DIR: ${{ env.GITHUB_WORKSPACE }}
+
     steps:
         - name: Checkout
           uses: actions/checkout@v2
-
-        - name: JavaSetup
-          uses: actions/setup-java@v2
-          with:
-            distribution: 'adopt'
-            java-version: '8'
-
-        - name: PythonSetup
-          uses: actions/setup-python@v2
-          with:
-            python-version: '3.8'
 
         - name: Installs
           run: |
             pip install --pre hamlet-cli
             pip install awscli
+
             sudo apt-get update
             sudo apt-get install -y jq dos2unix
 
-            hamlet engine install-engine _global
-            hamlet engine install-engine unicycle
-            hamlet engine set-engine unicycle
-
         - name: Run Deploy
           run: |
-            hamlet --root-dir "${GITHUB_WORKSPACE}" deploy list-deployments
-            hamlet --root-dir "${GITHUB_WORKSPACE}" deploy run-deployments
+            hamlet deploy list-deployments
+            hamlet deploy run-deployments
+
+        - name: save state
+          run: |
+            git add -A
+            git commit -m "bot: update deployment details"
+            git push
