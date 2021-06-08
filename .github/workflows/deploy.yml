@@ -37,7 +37,8 @@ jobs:
           run: |
             pip install --pre hamlet-cli
             pip install awscli
-            apt-get updated && apt-get install -y jq dos2unix
+            sudo apt-get update
+            sudo apt-get install -y jq dos2unix
 
             hamlet engine install-engine _global
             hamlet engine install-engine unicycle
