@@ -1,0 +1,50 @@
+name: deploy
+
+on:
+  push:
+
+jobs:
+
+  run_deployment:
+    runs-on: ubuntu-latest
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      ROOT_DIR: ${{env.GITHUB_WORKSPACE}}
+      TENANT: ham
+      ACCOUNT: hamacct01
+      PRODUCT: eggs
+      ENVIRONMENT: integration
+      SEGMENT: default
+
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - name: JavaSetup
+          uses: actions/setup-java@v2
+          with:
+            distribution: adapt
+            java-version: '8'
+
+        - name: PythonSetup
+          uses: actions/setup-python@v2
+          with:
+            python-version: '3.8'
+
+        - name: Installs
+          run: |
+            pip install --pre hamlet-cli
+            pip install awscli
+            apt-get updated && apt-get install -y jq
+
+            hamlet engine install-engine _global
+            hamlet engine install-engine unicycle
+            hamlet engine set-engine unicycle
+
+        - name: Run Deploy
+          run: |
+            hamlet deploy list-deployments
+            hamlet deploy run-deployments

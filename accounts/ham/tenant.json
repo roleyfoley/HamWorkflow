@@ -1,0 +1,16 @@
+{
+    "Tenant" : {
+        "Id" : "ham",
+        "Name" : "ham"
+    },
+    "Account" : {
+        "Region" : "ap-southeast-2",
+        "Audit" : {
+            "Offline" :  90,
+            "Expiration" :  2555
+        }
+    },
+    "Product" : {
+        "Region" : "ap-southeast-2"
+    }
+}

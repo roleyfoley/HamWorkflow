@@ -1,0 +1,9 @@
+{
+    "Account" : {
+        "Id" : "hamacct01",
+        "Name" : "hamacct01",
+        "Seed" : "pm48fskrx9",
+        "Provider" : "aws",
+        "ProviderId" : "598113632803"
+    }
+}
