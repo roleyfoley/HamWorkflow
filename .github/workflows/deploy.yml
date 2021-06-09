@@ -19,32 +19,36 @@ jobs:
       SEGMENT: default
 
     steps:
-        - name: Checkout
-          uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-        - name: javasetup
-          uses: actions/setup-java@v2
-          with:
-            distribution: 'adopt'
-            java-version: '8'
+      - name: javasetup
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '8'
 
-        - name: Installs
-          run: |
-            pip install --pre hamlet-cli
-            pip install awscli
+      - name: Installs
+        run: |
+          pip install --pre hamlet-cli
+          pip install awscli
 
-            sudo apt-get update
-            sudo apt-get install -y jq dos2unix
+          sudo apt-get update
+          sudo apt-get install -y jq dos2unix
 
-        - name: Run Deploy
-          env:
-            ROOT_DIR: ${{ env.GITHUB_WORKSPACE }}
-          run: |
-            hamlet deploy list-deployments
-            hamlet deploy run-deployments
+      - name: Run Deploy
+        run: |
+          hamlet deploy list-deployments
+          hamlet deploy run-deployments
 
-        - name: save state
-          run: |
-            git add -A
-            git commit -m "bot: update deployment details"
-            git push
+
+  save_state:
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [ run_deployment ]
+    steps:
+      - name: save state
+        run: |
+          git add -A
+          git commit -m "bot: update deployment details"
+          git push
