@@ -41,12 +41,22 @@ jobs:
           hamlet deploy list-deployments
           hamlet deploy run-deployments
 
+      - name: Save deploy state
+        uses: actions/upload-artifact@v2
+        with:
+          name: deploystate
+          path: ${{ env.GITHUB_WORKSPACE }}
+
 
   save_state:
     runs-on: ubuntu-latest
     if: always()
     needs: [ run_deployment ]
     steps:
+      - name: Download deploy state
+        uses: actions/download-artifact@v2
+        with:
+          name: deploystate
       - name: save state
         run: |
           git add -A
