@@ -1,0 +1,44 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:598113632803:stack/eggs-integration-seg-igw/7f5a8e20-c8bc-11eb-8352-0ab53cf0e518",
+            "StackName": "eggs-integration-seg-igw",
+            "CreationTime": "2021-06-09T00:49:08.143Z",
+            "RollbackConfiguration": {},
+            "StackStatus": "CREATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Capabilities": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_NAMED_IAM"
+            ],
+            "Outputs": [
+                {
+                    "OutputKey": "Account",
+                    "OutputValue": "598113632803"
+                },
+                {
+                    "OutputKey": "igwXmgmtXigw",
+                    "OutputValue": "igw-00e6870980e224b52"
+                },
+                {
+                    "OutputKey": "Region",
+                    "OutputValue": "ap-southeast-2"
+                },
+                {
+                    "OutputKey": "DeploymentMode",
+                    "OutputValue": "update"
+                },
+                {
+                    "OutputKey": "DeploymentUnit",
+                    "OutputValue": "igw"
+                }
+            ],
+            "Tags": [],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }
+        }
+    ]
+}

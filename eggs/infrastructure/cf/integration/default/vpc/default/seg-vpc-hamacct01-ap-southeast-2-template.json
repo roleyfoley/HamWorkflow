@@ -1,0 +1,587 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "ConfigurationReference": "unassigned",
+    "RequestReference": "unassigned",
+    "Prepared": "2021-06-09T01:33:10Z",
+    "RunId": "prjei9j83m"
+  },
+  "Outputs": {
+    "routeTableXmgmtXvpcXinternalXb": {
+      "Value": {
+        "Ref": "routeTableXmgmtXvpcXinternalXb"
+      }
+    },
+    "Account": {
+      "Value": {
+        "Ref": "AWS::AccountId"
+      }
+    },
+    "routeTableXmgmtXvpcXinternalXa": {
+      "Value": {
+        "Ref": "routeTableXmgmtXvpcXinternalXa"
+      }
+    },
+    "subnetXmgmtXvpcXmgmtXa": {
+      "Value": {
+        "Ref": "subnetXmgmtXvpcXmgmtXa"
+      }
+    },
+    "subnetXmgmtXvpcXmgmtXb": {
+      "Value": {
+        "Ref": "subnetXmgmtXvpcXmgmtXb"
+      }
+    },
+    "routeTableXmgmtXvpcXexternalXa": {
+      "Value": {
+        "Ref": "routeTableXmgmtXvpcXexternalXa"
+      }
+    },
+    "subnetListXmgmtXvpcXmgmt": {
+      "Value": {
+        "Fn::Join": [
+          ",",
+          [
+            {
+              "Ref": "subnetXmgmtXvpcXmgmtXa"
+            },
+            {
+              "Ref": "subnetXmgmtXvpcXmgmtXb"
+            }
+          ]
+        ]
+      },
+      "Export": {
+        "Name": {
+          "Fn::Join": [
+            ":",
+            [
+              {
+                "Ref": "AWS::StackName"
+              },
+              "subnetListXmgmtXvpcXmgmt"
+            ]
+          ]
+        }
+      }
+    },
+    "routeTableXmgmtXvpcXexternalXb": {
+      "Value": {
+        "Ref": "routeTableXmgmtXvpcXexternalXb"
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "DeploymentMode": {
+      "Value": "update"
+    },
+    "vpcXmgmtXvpc": {
+      "Value": {
+        "Ref": "vpcXmgmtXvpc"
+      },
+      "Export": {
+        "Name": {
+          "Fn::Join": [
+            ":",
+            [
+              {
+                "Ref": "AWS::StackName"
+              },
+              "vpcXmgmtXvpc"
+            ]
+          ]
+        }
+      }
+    },
+    "DeploymentUnit": {
+      "Value": "vpc"
+    }
+  },
+  "Resources": {
+    "routeTableXmgmtXvpcXinternalXb": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcXmgmtXvpc"
+        },
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "b",
+            "Key": "cot:zone"
+          },
+          {
+            "Value": "eggs-integration-management-vpc-internal-b",
+            "Key": "Name"
+          }
+        ]
+      }
+    },
+    "networkACLXmgmtXvpcXopen": {
+      "Type": "AWS::EC2::NetworkAcl",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcXmgmtXvpc"
+        },
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "eggs-integration-management-vpc-open",
+            "Key": "Name"
+          }
+        ]
+      }
+    },
+    "ruleXnetworkACLXmgmtXvpcXopenXinXinboundX200": {
+      "Type": "AWS::EC2::NetworkAclEntry",
+      "Properties": {
+        "PortRange": {
+          "From": 0,
+          "To": 65535
+        },
+        "NetworkAclId": {
+          "Ref": "networkACLXmgmtXvpcXopen"
+        },
+        "RuleAction": "allow",
+        "CidrBlock": "0.0.0.0/0",
+        "Egress": false,
+        "RuleNumber": 200,
+        "Protocol": "-1"
+      }
+    },
+    "routeTableXmgmtXvpcXinternalXa": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcXmgmtXvpc"
+        },
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "a",
+            "Key": "cot:zone"
+          },
+          {
+            "Value": "eggs-integration-management-vpc-internal-a",
+            "Key": "Name"
+          }
+        ]
+      }
+    },
+    "ruleXnetworkACLXmgmtXvpcXopenXoutXoutboundX200": {
+      "Type": "AWS::EC2::NetworkAclEntry",
+      "Properties": {
+        "PortRange": {
+          "From": 0,
+          "To": 65535
+        },
+        "NetworkAclId": {
+          "Ref": "networkACLXmgmtXvpcXopen"
+        },
+        "RuleAction": "allow",
+        "CidrBlock": "0.0.0.0/0",
+        "Egress": true,
+        "RuleNumber": 200,
+        "Protocol": "-1"
+      }
+    },
+    "routeTableXmgmtXvpcXexternalXa": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcXmgmtXvpc"
+        },
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "a",
+            "Key": "cot:zone"
+          },
+          {
+            "Value": "eggs-integration-management-vpc-external-a",
+            "Key": "Name"
+          }
+        ]
+      }
+    },
+    "routeTableXmgmtXvpcXexternalXb": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcXmgmtXvpc"
+        },
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "b",
+            "Key": "cot:zone"
+          },
+          {
+            "Value": "eggs-integration-management-vpc-external-b",
+            "Key": "Name"
+          }
+        ]
+      }
+    },
+    "vpcXmgmtXvpc": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsSupport": true,
+        "EnableDnsHostnames": true,
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "eggs-integration-management-vpc",
+            "Key": "Name"
+          }
+        ]
+      }
+    },
+    "associationXsubnetXmgmtXvpcXmgmtXbXrouteTable": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "routeTableXmgmtXvpcXexternalXb"
+        },
+        "SubnetId": {
+          "Ref": "subnetXmgmtXvpcXmgmtXb"
+        }
+      }
+    },
+    "associationXsubnetXmgmtXvpcXmgmtXaXnetworkACL": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "networkACLXmgmtXvpcXopen"
+        },
+        "SubnetId": {
+          "Ref": "subnetXmgmtXvpcXmgmtXa"
+        }
+      }
+    },
+    "associationXsubnetXmgmtXvpcXmgmtXbXnetworkACL": {
+      "Type": "AWS::EC2::SubnetNetworkAclAssociation",
+      "Properties": {
+        "NetworkAclId": {
+          "Ref": "networkACLXmgmtXvpcXopen"
+        },
+        "SubnetId": {
+          "Ref": "subnetXmgmtXvpcXmgmtXb"
+        }
+      }
+    },
+    "subnetXmgmtXvpcXmgmtXa": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcXmgmtXvpc"
+        },
+        "AvailabilityZone": "ap-southeast-2a",
+        "CidrBlock": "10.0.240.0/22",
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "management",
+            "Key": "cot:tier"
+          },
+          {
+            "Value": "a",
+            "Key": "cot:zone"
+          },
+          {
+            "Value": "eggs-integration-management-vpc-management-a",
+            "Key": "Name"
+          }
+        ]
+      }
+    },
+    "subnetXmgmtXvpcXmgmtXb": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "VpcId": {
+          "Ref": "vpcXmgmtXvpc"
+        },
+        "AvailabilityZone": "ap-southeast-2b",
+        "CidrBlock": "10.0.244.0/22",
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "management",
+            "Key": "cot:tier"
+          },
+          {
+            "Value": "b",
+            "Key": "cot:zone"
+          },
+          {
+            "Value": "eggs-integration-management-vpc-management-b",
+            "Key": "Name"
+          }
+        ]
+      }
+    },
+    "associationXsubnetXmgmtXvpcXmgmtXaXrouteTable": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "routeTableXmgmtXvpcXexternalXa"
+        },
+        "SubnetId": {
+          "Ref": "subnetXmgmtXvpcXmgmtXa"
+        }
+      }
+    }
+  }
+}

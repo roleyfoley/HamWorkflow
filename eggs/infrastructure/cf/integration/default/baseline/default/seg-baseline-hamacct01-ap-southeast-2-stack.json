@@ -1,0 +1,106 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:598113632803:stack/eggs-integration-seg-baseline/df174a10-c826-11eb-9bf8-0ab603ad270e",
+            "StackName": "eggs-integration-seg-baseline",
+            "ChangeSetId": "arn:aws:cloudformation:ap-southeast-2:598113632803:changeSet/initial-1623202228/db17eb0f-35c8-4d1a-b080-7a5031879779",
+            "CreationTime": "2021-06-08T06:58:04.263Z",
+            "LastUpdatedTime": "2021-06-09T01:31:04.464Z",
+            "RollbackConfiguration": {},
+            "StackStatus": "UPDATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Capabilities": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_NAMED_IAM"
+            ],
+            "Outputs": [
+                {
+                    "OutputKey": "s3XsegmentXappdataXurl",
+                    "OutputValue": "http://eggs-integration-data-kmxho4g51q.s3-website-ap-southeast-2.amazonaws.com"
+                },
+                {
+                    "OutputKey": "Account",
+                    "OutputValue": "598113632803"
+                },
+                {
+                    "OutputKey": "s3XsegmentXopsdataXurl",
+                    "OutputValue": "http://eggs-integration-ops-kmxho4g51q.s3-website-ap-southeast-2.amazonaws.com"
+                },
+                {
+                    "OutputKey": "cfaccessXmgmtXbaselineXoaiXcanonicalid",
+                    "OutputValue": "f56674377a74dc20fefc0ffa2f3dc0fef316d77b81a8c3eebf1ec1752df38190ec791c07e73cc2757191828bfc1a6800"
+                },
+                {
+                    "OutputKey": "s3XsegmentXopsdataXdns",
+                    "OutputValue": "eggs-integration-ops-kmxho4g51q.s3.amazonaws.com"
+                },
+                {
+                    "OutputKey": "s3XsegmentXopsdataXregion",
+                    "OutputValue": "ap-southeast-2"
+                },
+                {
+                    "OutputKey": "s3XsegmentXopsdata",
+                    "OutputValue": "eggs-integration-ops-kmxho4g51q"
+                },
+                {
+                    "OutputKey": "cmkXmgmtXbaselineXcmk",
+                    "OutputValue": "4e3953d6-52d3-4b5b-9770-6ebeda0300c3"
+                },
+                {
+                    "OutputKey": "s3XsegmentXappdataXregion",
+                    "OutputValue": "ap-southeast-2"
+                },
+                {
+                    "OutputKey": "s3XsegmentXopsdataXname",
+                    "OutputValue": "eggs-integration-ops-kmxho4g51q"
+                },
+                {
+                    "OutputKey": "s3XsegmentXopsdataXarn",
+                    "OutputValue": "arn:aws:s3:::eggs-integration-ops-kmxho4g51q"
+                },
+                {
+                    "OutputKey": "s3XsegmentXappdataXname",
+                    "OutputValue": "eggs-integration-data-kmxho4g51q"
+                },
+                {
+                    "OutputKey": "s3XsegmentXappdataXarn",
+                    "OutputValue": "arn:aws:s3:::eggs-integration-data-kmxho4g51q"
+                },
+                {
+                    "OutputKey": "cfaccessXmgmtXbaselineXoai",
+                    "OutputValue": "EM2JSS14EUKQ4"
+                },
+                {
+                    "OutputKey": "cmkXmgmtXbaselineXcmkXarn",
+                    "OutputValue": "arn:aws:kms:ap-southeast-2:598113632803:key/4e3953d6-52d3-4b5b-9770-6ebeda0300c3"
+                },
+                {
+                    "OutputKey": "s3XsegmentXappdata",
+                    "OutputValue": "eggs-integration-data-kmxho4g51q"
+                },
+                {
+                    "OutputKey": "Region",
+                    "OutputValue": "ap-southeast-2"
+                },
+                {
+                    "OutputKey": "DeploymentMode",
+                    "OutputValue": "update"
+                },
+                {
+                    "OutputKey": "s3XsegmentXappdataXdns",
+                    "OutputValue": "eggs-integration-data-kmxho4g51q.s3.amazonaws.com"
+                },
+                {
+                    "OutputKey": "DeploymentUnit",
+                    "OutputValue": "baseline"
+                }
+            ],
+            "Tags": [],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }
+        }
+    ]
+}

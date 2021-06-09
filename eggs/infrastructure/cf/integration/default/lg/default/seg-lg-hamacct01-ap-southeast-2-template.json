@@ -1,0 +1,49 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "ConfigurationReference": "unassigned",
+    "RequestReference": "unassigned",
+    "Prepared": "2021-06-09T01:32:43Z",
+    "RunId": "9kc1eu69xm"
+  },
+  "Outputs": {
+    "Account": {
+      "Value": {
+        "Ref": "AWS::AccountId"
+      }
+    },
+    "lgXmgmtXssh": {
+      "Value": {
+        "Ref": "lgXmgmtXssh"
+      }
+    },
+    "lgXmgmtXsshXarn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "lgXmgmtXssh",
+          "Arn"
+        ]
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "DeploymentMode": {
+      "Value": "update"
+    },
+    "DeploymentUnit": {
+      "Value": "lg"
+    }
+  },
+  "Resources": {
+    "lgXmgmtXssh": {
+      "Type": "AWS::Logs::LogGroup",
+      "Properties": {
+        "RetentionInDays": 30,
+        "LogGroupName": "/eggs/integration/management/ssh"
+      }
+    }
+  }
+}

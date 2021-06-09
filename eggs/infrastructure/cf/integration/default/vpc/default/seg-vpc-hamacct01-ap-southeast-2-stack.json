@@ -1,0 +1,74 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:598113632803:stack/eggs-integration-seg-vpc/381b1d40-c8bc-11eb-bb0f-0aa290d68d78",
+            "StackName": "eggs-integration-seg-vpc",
+            "CreationTime": "2021-06-09T00:47:08.618Z",
+            "RollbackConfiguration": {},
+            "StackStatus": "CREATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Capabilities": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_NAMED_IAM"
+            ],
+            "Outputs": [
+                {
+                    "OutputKey": "routeTableXmgmtXvpcXinternalXb",
+                    "OutputValue": "rtb-0a703ba03a56aba66"
+                },
+                {
+                    "OutputKey": "Account",
+                    "OutputValue": "598113632803"
+                },
+                {
+                    "OutputKey": "routeTableXmgmtXvpcXinternalXa",
+                    "OutputValue": "rtb-04fcb22f397183288"
+                },
+                {
+                    "OutputKey": "subnetXmgmtXvpcXmgmtXa",
+                    "OutputValue": "subnet-0e0417c0357354651"
+                },
+                {
+                    "OutputKey": "routeTableXmgmtXvpcXexternalXa",
+                    "OutputValue": "rtb-06c8733065982a2ad"
+                },
+                {
+                    "OutputKey": "subnetXmgmtXvpcXmgmtXb",
+                    "OutputValue": "subnet-079610413fca3f19b"
+                },
+                {
+                    "OutputKey": "routeTableXmgmtXvpcXexternalXb",
+                    "OutputValue": "rtb-01e42666c09b5bd15"
+                },
+                {
+                    "OutputKey": "subnetListXmgmtXvpcXmgmt",
+                    "OutputValue": "subnet-0e0417c0357354651,subnet-079610413fca3f19b",
+                    "ExportName": "eggs-integration-seg-vpc:subnetListXmgmtXvpcXmgmt"
+                },
+                {
+                    "OutputKey": "Region",
+                    "OutputValue": "ap-southeast-2"
+                },
+                {
+                    "OutputKey": "DeploymentMode",
+                    "OutputValue": "update"
+                },
+                {
+                    "OutputKey": "vpcXmgmtXvpc",
+                    "OutputValue": "vpc-00a96e2d256ad2346",
+                    "ExportName": "eggs-integration-seg-vpc:vpcXmgmtXvpc"
+                },
+                {
+                    "OutputKey": "DeploymentUnit",
+                    "OutputValue": "vpc"
+                }
+            ],
+            "Tags": [],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }
+        }
+    ]
+}

@@ -1,0 +1,52 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:598113632803:stack/eggs-integration-seg-iam/04533b70-c829-11eb-9e00-02896ed89464",
+            "StackName": "eggs-integration-seg-iam",
+            "CreationTime": "2021-06-08T07:13:25.728Z",
+            "RollbackConfiguration": {},
+            "StackStatus": "CREATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Capabilities": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_NAMED_IAM"
+            ],
+            "Outputs": [
+                {
+                    "OutputKey": "Account",
+                    "OutputValue": "598113632803"
+                },
+                {
+                    "OutputKey": "Region",
+                    "OutputValue": "ap-southeast-2"
+                },
+                {
+                    "OutputKey": "DeploymentMode",
+                    "OutputValue": "update"
+                },
+                {
+                    "OutputKey": "roleXmgmtXssh",
+                    "OutputValue": "eggs-integration-seg-iam-roleXmgmtXssh-8SVAM6KB749P"
+                },
+                {
+                    "OutputKey": "roleXmgmtXsshXarn",
+                    "OutputValue": "arn:aws:iam::598113632803:role/eggs-integration-seg-iam-roleXmgmtXssh-8SVAM6KB749P"
+                },
+                {
+                    "OutputKey": "roleXmgmtXsshXname",
+                    "OutputValue": "eggs-integration-seg-iam-roleXmgmtXssh-8SVAM6KB749P"
+                },
+                {
+                    "OutputKey": "DeploymentUnit",
+                    "OutputValue": "iam"
+                }
+            ],
+            "Tags": [],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }
+        }
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "Stacks": [
+        {
+            "Comment": "SSH Key Pair",
+            "Outputs": [
+                {
+                    "OutputKey": "sshKeyPairXmgmtXbaselineXssh",
+                    "OutputValue": "eggs-integration-management-baseline-ssh"
+                },
+                {
+                    "OutputKey": "sshKeyPairXmgmtXbaselineXsshXname",
+                    "OutputValue": "eggs-integration-management-baseline-ssh"
+                },
+                {
+                    "OutputKey": "Account",
+                    "OutputValue": "598113632803"
+                },
+                {
+                    "OutputKey": "Region",
+                    "OutputValue": "ap-southeast-2"
+                },
+                {
+                    "OutputKey": "DeploymentUnit",
+                    "OutputValue": "baseline-epilogue"
+                },
+                {
+                    "OutputKey": "DeploymentMode",
+                    "OutputValue": "update"
+                }
+            ]
+        }
+    ]
+}

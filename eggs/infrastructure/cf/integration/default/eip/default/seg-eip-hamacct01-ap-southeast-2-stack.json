@@ -1,0 +1,64 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:598113632803:stack/eggs-integration-seg-eip/64f3fad0-c8bc-11eb-b531-0a2a1b0fbb62",
+            "StackName": "eggs-integration-seg-eip",
+            "CreationTime": "2021-06-09T00:48:23.852Z",
+            "RollbackConfiguration": {},
+            "StackStatus": "CREATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Capabilities": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_NAMED_IAM"
+            ],
+            "Outputs": [
+                {
+                    "OutputKey": "Account",
+                    "OutputValue": "598113632803"
+                },
+                {
+                    "OutputKey": "eipXmgmtXssh",
+                    "OutputValue": "13.54.42.34"
+                },
+                {
+                    "OutputKey": "eipXmgmtXnatXa",
+                    "OutputValue": "52.65.41.231"
+                },
+                {
+                    "OutputKey": "eipXmgmtXsshXip",
+                    "OutputValue": "13.54.42.34"
+                },
+                {
+                    "OutputKey": "Region",
+                    "OutputValue": "ap-southeast-2"
+                },
+                {
+                    "OutputKey": "DeploymentMode",
+                    "OutputValue": "update"
+                },
+                {
+                    "OutputKey": "eipXmgmtXnatXaXip",
+                    "OutputValue": "52.65.41.231"
+                },
+                {
+                    "OutputKey": "eipXmgmtXsshXid",
+                    "OutputValue": "eipalloc-0a7fd6db61e7cbf66"
+                },
+                {
+                    "OutputKey": "DeploymentUnit",
+                    "OutputValue": "eip"
+                },
+                {
+                    "OutputKey": "eipXmgmtXnatXaXid",
+                    "OutputValue": "eipalloc-01c64a344c6574e05"
+                }
+            ],
+            "Tags": [],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }
+        }
+    ]
+}

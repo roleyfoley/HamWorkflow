@@ -1,0 +1,48 @@
+{
+    "Stacks": [
+        {
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:598113632803:stack/eggs-integration-seg-lg/1e80e470-c829-11eb-8ed6-025033e0d360",
+            "StackName": "eggs-integration-seg-lg",
+            "CreationTime": "2021-06-08T07:14:09.634Z",
+            "RollbackConfiguration": {},
+            "StackStatus": "CREATE_COMPLETE",
+            "DisableRollback": false,
+            "NotificationARNs": [],
+            "Capabilities": [
+                "CAPABILITY_IAM",
+                "CAPABILITY_NAMED_IAM"
+            ],
+            "Outputs": [
+                {
+                    "OutputKey": "Account",
+                    "OutputValue": "598113632803"
+                },
+                {
+                    "OutputKey": "lgXmgmtXssh",
+                    "OutputValue": "/eggs/integration/management/ssh"
+                },
+                {
+                    "OutputKey": "lgXmgmtXsshXarn",
+                    "OutputValue": "arn:aws:logs:ap-southeast-2:598113632803:log-group:/eggs/integration/management/ssh:*"
+                },
+                {
+                    "OutputKey": "Region",
+                    "OutputValue": "ap-southeast-2"
+                },
+                {
+                    "OutputKey": "DeploymentMode",
+                    "OutputValue": "update"
+                },
+                {
+                    "OutputKey": "DeploymentUnit",
+                    "OutputValue": "lg"
+                }
+            ],
+            "Tags": [],
+            "EnableTerminationProtection": false,
+            "DriftInformation": {
+                "StackDriftStatus": "NOT_CHECKED"
+            }
+        }
+    ]
+}

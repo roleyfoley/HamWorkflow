@@ -1,0 +1,186 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "ConfigurationReference": "unassigned",
+    "RequestReference": "unassigned",
+    "Prepared": "2021-06-09T01:34:00Z",
+    "RunId": "r42r42ywqd"
+  },
+  "Outputs": {
+    "Account": {
+      "Value": {
+        "Ref": "AWS::AccountId"
+      }
+    },
+    "securityGroupXmgmtXvpcendpoint": {
+      "Value": {
+        "Ref": "securityGroupXmgmtXvpcendpoint"
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "DeploymentMode": {
+      "Value": "update"
+    },
+    "DeploymentUnit": {
+      "Value": "vpcendpoint"
+    }
+  },
+  "Resources": {
+    "securityGroupXmgmtXvpcendpoint": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "eggs-integration-management-vpcendpoint",
+        "VpcId": "vpc-00a96e2d256ad2346",
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "management",
+            "Key": "cot:tier"
+          },
+          {
+            "Value": "vpcendpoint",
+            "Key": "cot:component"
+          },
+          {
+            "Value": "eggs-integration-management-vpcendpoint",
+            "Key": "Name"
+          }
+        ]
+      }
+    },
+    "vpcEndPointXmgmtXvpcendpointXdefaultXs3": {
+      "Type": "AWS::EC2::VPCEndpoint",
+      "Properties": {
+        "VpcId": "vpc-00a96e2d256ad2346",
+        "ServiceName": "com.amazonaws.ap-southeast-2.s3",
+        "RouteTableIds": [
+          "rtb-04fcb22f397183288",
+          "rtb-0a703ba03a56aba66",
+          "rtb-06c8733065982a2ad",
+          "rtb-01e42666c09b5bd15"
+        ],
+        "VpcEndpointType": "Gateway"
+      }
+    },
+    "ingressXsecurityGroupXmgmtXvpcendpointXhttpXsecurityGroupXmgmtXssh": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "FromPort": 80,
+        "Description": "eggs-integration-management-ssh",
+        "ToPort": 80,
+        "IpProtocol": "tcp",
+        "SourceSecurityGroupId": {
+          "Ref": "securityGroupXmgmtXssh"
+        },
+        "GroupId": {
+          "Ref": "securityGroupXmgmtXvpcendpoint"
+        }
+      }
+    },
+    "ingressXsecurityGroupXmgmtXvpcendpointXhttpsX1000016": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "CidrIp": "10.0.0.0/16",
+        "FromPort": 443,
+        "ToPort": 443,
+        "IpProtocol": "tcp",
+        "GroupId": {
+          "Ref": "securityGroupXmgmtXvpcendpoint"
+        }
+      }
+    },
+    "vpcEndPointXmgmtXvpcendpointXdefaultXlogs": {
+      "Type": "AWS::EC2::VPCEndpoint",
+      "Properties": {
+        "PrivateDnsEnabled": true,
+        "VpcId": "vpc-00a96e2d256ad2346",
+        "ServiceName": "com.amazonaws.ap-southeast-2.logs",
+        "VpcEndpointType": "Interface",
+        "SubnetIds": [
+          "subnet-0e0417c0357354651"
+        ],
+        "SecurityGroupIds": [
+          {
+            "Ref": "securityGroupXmgmtXvpcendpoint"
+          }
+        ]
+      }
+    },
+    "ingressXsecurityGroupXmgmtXvpcendpointXhttpsXsecurityGroupXmgmtXssh": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "FromPort": 443,
+        "Description": "eggs-integration-management-ssh",
+        "ToPort": 443,
+        "IpProtocol": "tcp",
+        "SourceSecurityGroupId": {
+          "Ref": "securityGroupXmgmtXssh"
+        },
+        "GroupId": {
+          "Ref": "securityGroupXmgmtXvpcendpoint"
+        }
+      }
+    },
+    "ingressXsecurityGroupXmgmtXvpcendpointXhttpX1000016": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "CidrIp": "10.0.0.0/16",
+        "FromPort": 80,
+        "ToPort": 80,
+        "IpProtocol": "tcp",
+        "GroupId": {
+          "Ref": "securityGroupXmgmtXvpcendpoint"
+        }
+      }
+    },
+    "vpcEndPointXmgmtXvpcendpointXdefaultXdynamodb": {
+      "Type": "AWS::EC2::VPCEndpoint",
+      "Properties": {
+        "VpcId": "vpc-00a96e2d256ad2346",
+        "ServiceName": "com.amazonaws.ap-southeast-2.dynamodb",
+        "RouteTableIds": [
+          "rtb-04fcb22f397183288",
+          "rtb-0a703ba03a56aba66",
+          "rtb-06c8733065982a2ad",
+          "rtb-01e42666c09b5bd15"
+        ],
+        "VpcEndpointType": "Gateway"
+      }
+    }
+  }
+}

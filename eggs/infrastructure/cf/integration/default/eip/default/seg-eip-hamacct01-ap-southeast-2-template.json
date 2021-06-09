@@ -1,0 +1,123 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "ConfigurationReference": "unassigned",
+    "RequestReference": "unassigned",
+    "Prepared": "2021-06-09T01:33:27Z",
+    "RunId": "k67v5tl304"
+  },
+  "Outputs": {
+    "Account": {
+      "Value": {
+        "Ref": "AWS::AccountId"
+      }
+    },
+    "eipXmgmtXssh": {
+      "Value": {
+        "Ref": "eipXmgmtXssh"
+      }
+    },
+    "eipXmgmtXnatXa": {
+      "Value": {
+        "Ref": "eipXmgmtXnatXa"
+      }
+    },
+    "eipXmgmtXsshXip": {
+      "Value": {
+        "Ref": "eipXmgmtXssh"
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "DeploymentMode": {
+      "Value": "update"
+    },
+    "eipXmgmtXnatXaXip": {
+      "Value": {
+        "Ref": "eipXmgmtXnatXa"
+      }
+    },
+    "eipXmgmtXsshXid": {
+      "Value": {
+        "Fn::GetAtt": [
+          "eipXmgmtXssh",
+          "AllocationId"
+        ]
+      }
+    },
+    "DeploymentUnit": {
+      "Value": "eip"
+    },
+    "eipXmgmtXnatXaXid": {
+      "Value": {
+        "Fn::GetAtt": [
+          "eipXmgmtXnatXa",
+          "AllocationId"
+        ]
+      }
+    }
+  },
+  "Resources": {
+    "eipXmgmtXssh": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "management",
+            "Key": "cot:tier"
+          },
+          {
+            "Value": "ssh",
+            "Key": "cot:component"
+          },
+          {
+            "Value": "eggs-integration-management-ssh",
+            "Key": "Name"
+          }
+        ]
+      }
+    },
+    "eipXmgmtXnatXa": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc"
+      }
+    }
+  }
+}

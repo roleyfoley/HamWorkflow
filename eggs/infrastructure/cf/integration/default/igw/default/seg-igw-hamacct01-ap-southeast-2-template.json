@@ -1,0 +1,112 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "ConfigurationReference": "unassigned",
+    "RequestReference": "unassigned",
+    "Prepared": "2021-06-09T01:33:43Z",
+    "RunId": "arzrxb7h92"
+  },
+  "Outputs": {
+    "Account": {
+      "Value": {
+        "Ref": "AWS::AccountId"
+      }
+    },
+    "igwXmgmtXigw": {
+      "Value": {
+        "Ref": "igwXmgmtXigw"
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "DeploymentMode": {
+      "Value": "update"
+    },
+    "DeploymentUnit": {
+      "Value": "igw"
+    }
+  },
+  "Resources": {
+    "routeXrouteTableXmgmtXvpcXexternalXbXmgmtXigwXdefaultX0": {
+      "Type": "AWS::EC2::Route",
+      "DependsOn": [
+        "igwXattachmentXmgmtXigw"
+      ],
+      "Properties": {
+        "RouteTableId": "rtb-01e42666c09b5bd15",
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "igwXmgmtXigw"
+        }
+      }
+    },
+    "igwXattachmentXmgmtXigw": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "InternetGatewayId": {
+          "Ref": "igwXmgmtXigw"
+        },
+        "VpcId": "vpc-00a96e2d256ad2346"
+      }
+    },
+    "routeXrouteTableXmgmtXvpcXexternalXaXmgmtXigwXdefaultX0": {
+      "Type": "AWS::EC2::Route",
+      "DependsOn": [
+        "igwXattachmentXmgmtXigw"
+      ],
+      "Properties": {
+        "RouteTableId": "rtb-06c8733065982a2ad",
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "igwXmgmtXigw"
+        }
+      }
+    },
+    "igwXmgmtXigw": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          },
+          {
+            "Value": "default",
+            "Key": "cot:segment"
+          },
+          {
+            "Value": "eggs-integration-management-igw",
+            "Key": "Name"
+          }
+        ]
+      }
+    }
+  }
+}

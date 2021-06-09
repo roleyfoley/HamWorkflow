@@ -1,0 +1,29 @@
+{
+    "Stacks": [
+        {
+            "Comment": "Seed Values",
+            "Outputs": [
+                {
+                    "OutputKey": "seedXsegment",
+                    "OutputValue": "kmxho4g51q"
+                },
+                {
+                    "OutputKey": "Account",
+                    "OutputValue": "598113632803"
+                },
+                {
+                    "OutputKey": "Region",
+                    "OutputValue": "ap-southeast-2"
+                },
+                {
+                    "OutputKey": "DeploymentUnit",
+                    "OutputValue": "baseline-prologue"
+                },
+                {
+                    "OutputKey": "DeploymentMode",
+                    "OutputValue": "update"
+                }
+            ]
+        }
+    ]
+}

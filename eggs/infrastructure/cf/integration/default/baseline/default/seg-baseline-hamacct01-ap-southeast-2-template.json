@@ -1,0 +1,440 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "ConfigurationReference": "unassigned",
+    "RequestReference": "unassigned",
+    "Prepared": "2021-06-09T01:30:23Z",
+    "RunId": "kmxho4g51q"
+  },
+  "Outputs": {
+    "s3XsegmentXappdataXurl": {
+      "Value": {
+        "Fn::GetAtt": [
+          "s3XsegmentXappdata",
+          "WebsiteURL"
+        ]
+      }
+    },
+    "Account": {
+      "Value": {
+        "Ref": "AWS::AccountId"
+      }
+    },
+    "s3XsegmentXopsdataXurl": {
+      "Value": {
+        "Fn::GetAtt": [
+          "s3XsegmentXopsdata",
+          "WebsiteURL"
+        ]
+      }
+    },
+    "cfaccessXmgmtXbaselineXoaiXcanonicalid": {
+      "Value": {
+        "Fn::GetAtt": [
+          "cfaccessXmgmtXbaselineXoai",
+          "S3CanonicalUserId"
+        ]
+      }
+    },
+    "s3XsegmentXopsdataXdns": {
+      "Value": {
+        "Fn::GetAtt": [
+          "s3XsegmentXopsdata",
+          "DomainName"
+        ]
+      }
+    },
+    "s3XsegmentXopsdataXregion": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "s3XsegmentXopsdata": {
+      "Value": {
+        "Ref": "s3XsegmentXopsdata"
+      }
+    },
+    "cmkXmgmtXbaselineXcmk": {
+      "Value": {
+        "Ref": "cmkXmgmtXbaselineXcmk"
+      }
+    },
+    "s3XsegmentXappdataXregion": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "s3XsegmentXopsdataXname": {
+      "Value": {
+        "Ref": "s3XsegmentXopsdata"
+      }
+    },
+    "s3XsegmentXopsdataXarn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "s3XsegmentXopsdata",
+          "Arn"
+        ]
+      }
+    },
+    "s3XsegmentXappdataXname": {
+      "Value": {
+        "Ref": "s3XsegmentXappdata"
+      }
+    },
+    "s3XsegmentXappdataXarn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "s3XsegmentXappdata",
+          "Arn"
+        ]
+      }
+    },
+    "cfaccessXmgmtXbaselineXoai": {
+      "Value": {
+        "Ref": "cfaccessXmgmtXbaselineXoai"
+      }
+    },
+    "cmkXmgmtXbaselineXcmkXarn": {
+      "Value": {
+        "Fn::GetAtt": [
+          "cmkXmgmtXbaselineXcmk",
+          "Arn"
+        ]
+      }
+    },
+    "s3XsegmentXappdata": {
+      "Value": {
+        "Ref": "s3XsegmentXappdata"
+      }
+    },
+    "Region": {
+      "Value": {
+        "Ref": "AWS::Region"
+      }
+    },
+    "DeploymentMode": {
+      "Value": "update"
+    },
+    "s3XsegmentXappdataXdns": {
+      "Value": {
+        "Fn::GetAtt": [
+          "s3XsegmentXappdata",
+          "DomainName"
+        ]
+      }
+    },
+    "DeploymentUnit": {
+      "Value": "baseline"
+    }
+  },
+  "Resources": {
+    "s3XsegmentXopsdata": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "eggs-integration-ops-kmxho4g51q",
+        "LifecycleConfiguration": {
+          "Rules": [
+            {
+              "Status": "Enabled",
+              "NoncurrentVersionExpirationInDays": 30,
+              "ExpirationInDays": 30,
+              "Prefix": "AWSLogs"
+            },
+            {
+              "Status": "Enabled",
+              "NoncurrentVersionExpirationInDays": 30,
+              "ExpirationInDays": 30,
+              "Prefix": "CLOUDFRONTLogs"
+            },
+            {
+              "Status": "Enabled",
+              "NoncurrentVersionExpirationInDays": 30,
+              "ExpirationInDays": 30,
+              "Prefix": "DOCKERLogs"
+            },
+            {
+              "Status": "Enabled",
+              "NoncurrentVersionExpirationInDays": 30,
+              "ExpirationInDays": 30,
+              "Prefix": "WAF"
+            }
+          ]
+        },
+        "VersioningConfiguration": {
+          "Status": "Enabled"
+        },
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          }
+        ]
+      }
+    },
+    "cfaccessXmgmtXbaselineXoai": {
+      "Type": "AWS::CloudFront::CloudFrontOriginAccessIdentity",
+      "Properties": {
+        "CloudFrontOriginAccessIdentityConfig": {
+          "Comment": "eggs-integration-management-baseline-oai"
+        }
+      }
+    },
+    "s3XsegmentXappdata": {
+      "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketName": "eggs-integration-data-kmxho4g51q",
+        "VersioningConfiguration": {
+          "Status": "Enabled"
+        },
+        "Tags": [
+          {
+            "Value": "unassigned",
+            "Key": "cot:request"
+          },
+          {
+            "Value": "unassigned",
+            "Key": "cot:configuration"
+          },
+          {
+            "Value": "ham",
+            "Key": "cot:tenant"
+          },
+          {
+            "Value": "hamacct01",
+            "Key": "cot:account"
+          },
+          {
+            "Value": "eggs",
+            "Key": "cot:product"
+          },
+          {
+            "Value": "integration",
+            "Key": "cot:environment"
+          },
+          {
+            "Value": "test",
+            "Key": "cot:category"
+          }
+        ]
+      }
+    },
+    "cmkXmgmtXbaselineXcmk": {
+      "Type": "AWS::KMS::Key",
+      "Properties": {
+        "Description": "eggs-integration-management-baseline-cmk",
+        "KeyPolicy": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "kms:*",
+              "Resource": "*",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Join": [
+                    ":",
+                    [
+                      "arn",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      "iam",
+                      "",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      "root"
+                    ]
+                  ]
+                }
+              }
+            },
+            {
+              "Action": [
+                "kms:GenerateDataKey"
+              ],
+              "Resource": "*",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "s3.amazonaws.com"
+              },
+              "Sid": "S3 Access for Inventory Report storage"
+            },
+            {
+              "Condition": {
+                "StringEquals": {
+                  "kms:EncryptionContext:aws:ses:source-account": {
+                    "Ref": "AWS::AccountId"
+                  }
+                },
+                "Null": {
+                  "kms:EncryptionContext:aws:ses:rule-name": false,
+                  "kms:EncryptionContext:aws:ses:message-id": false
+                }
+              },
+              "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey*",
+                "kms:DescribeKey"
+              ],
+              "Resource": "*",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ses.amazonaws.com"
+              },
+              "Sid": "SES Access to CMK"
+            },
+            {
+              "Action": [
+                "kms:GenerateDataKey"
+              ],
+              "Resource": "*",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "delivery.logs.amazonaws.com"
+              },
+              "Sid": "CloudFront Log Delivery access"
+            }
+          ]
+        },
+        "Enabled": true,
+        "EnableKeyRotation": true
+      }
+    },
+    "cmkaliasXmgmtXbaselineXcmk": {
+      "Type": "AWS::KMS::Alias",
+      "Properties": {
+        "TargetKeyId": {
+          "Fn::GetAtt": [
+            "cmkXmgmtXbaselineXcmk",
+            "Arn"
+          ]
+        },
+        "AliasName": "alias/eggs-integration-management-baseline-cmk"
+      }
+    },
+    "bucketpolicyXs3XsegmentXopsdata": {
+      "Type": "AWS::S3::BucketPolicy",
+      "DependsOn": [
+        "s3XsegmentXopsdata"
+      ],
+      "Properties": {
+        "Bucket": "eggs-integration-ops-kmxho4g51q",
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "s3:PutObject*",
+              "Resource": "arn:aws:s3:::eggs-integration-ops-kmxho4g51q/AWSLogs/*",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": "arn:aws:iam::783225319266:root"
+              }
+            },
+            {
+              "Action": "s3:GetBucketAcl",
+              "Resource": "arn:aws:s3:::eggs-integration-ops-kmxho4g51q",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "logs.ap-southeast-2.amazonaws.com"
+              }
+            },
+            {
+              "Condition": {
+                "StringEquals": {
+                  "s3:x-amz-acl": "bucket-owner-full-control"
+                }
+              },
+              "Action": "s3:PutObject*",
+              "Resource": "arn:aws:s3:::eggs-integration-ops-kmxho4g51q/*",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "logs.ap-southeast-2.amazonaws.com"
+              }
+            },
+            {
+              "Action": "s3:GetObject*",
+              "Resource": "arn:aws:s3:::eggs-integration-ops-kmxho4g51q/settings/eggs/integration/*",
+              "Effect": "Allow",
+              "Principal": {
+                "CanonicalUser": [
+                  {
+                    "Fn::GetAtt": [
+                      "cfaccessXmgmtXbaselineXoai",
+                      "S3CanonicalUserId"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "Action": "s3:List*",
+              "Resource": "arn:aws:s3:::eggs-integration-ops-kmxho4g51q/settings/eggs/integration/*",
+              "Effect": "Allow",
+              "Principal": {
+                "CanonicalUser": [
+                  {
+                    "Fn::GetAtt": [
+                      "cfaccessXmgmtXbaselineXoai",
+                      "S3CanonicalUserId"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "Condition": {
+                "StringLike": {
+                  "s3:prefix": "settings/eggs/integration/*"
+                }
+              },
+              "Action": [
+                "s3:ListBucket",
+                "s3:ListBucketVersions"
+              ],
+              "Resource": "arn:aws:s3:::eggs-integration-ops-kmxho4g51q",
+              "Effect": "Allow",
+              "Principal": {
+                "CanonicalUser": [
+                  {
+                    "Fn::GetAtt": [
+                      "cfaccessXmgmtXbaselineXoai",
+                      "S3CanonicalUserId"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}
